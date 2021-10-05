@@ -6,6 +6,7 @@ export default {
   component: CryptoCard,
 };
 const btc: Cryptocurrency = {
+  id: 1,
   label: "bitcoin",
   desciption: "cryptocurrency",
   marketCap: 47000,
@@ -14,6 +15,7 @@ const btc: Cryptocurrency = {
   change_24h: 2000,
   change_7d: 4000,
 };
+
 //@ts-ignore
 const Template = (args) => <CryptoCard {...args} />;
 

@@ -1,5 +1,7 @@
 import * as React from "react";
+
 export interface Cryptocurrency {
+  id: number;
   label: string;
   desciption: string;
   marketCap: number;
@@ -8,16 +10,15 @@ export interface Cryptocurrency {
   change_24h: number;
   change_7d: number;
 }
+
 export function CryptoCard(props: { crypto: Cryptocurrency }) {
   const { crypto } = props;
   return (
     <div className="col">
       <div className="card">
-        <img
-          className="card-img-top"
-          src="https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=014"
-          alt="bitcoin"
-        />
+        <img className="card-img-top" src={crypto.logoUrl} alt={crypto.label} />
+        <p>{crypto.label}</p>
+        <p>{crypto.symbol}</p>
       </div>
     </div>
   );

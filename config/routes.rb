@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  
-  resources :watchlist_entries
-  resources :watchlists
-  resources :cryptocurrencies
-  resources :users
+
+  scope '/api' do
+    # TODO - replace `resources` with individual GET/POST/PUT/DELETE routes
+    resources :watchlist_entries
+    resources :watchlists
+    resources :cryptocurrencies
+    resources :users
+  end
+
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }

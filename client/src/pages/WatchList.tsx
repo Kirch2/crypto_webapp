@@ -1,20 +1,26 @@
 import { Watchlist, WatchlistFetcher } from "../components/WatchlistFetcher";
 import { Loading } from "../components/Loading";
 import { NavLink } from "react-router-dom";
+import { WatchListDeleter } from "../components/WatchListDeleter";
 
-export function WatchlistCard(props: { watchlist: Watchlist }) {
+export function WatchlistCard(props: {
+  watchlist: Watchlist;
+  loading: boolean;
+  onDelete: () => void;
+}) {
   const { watchlist } = props;
   return (
-    <NavLink
-      exact
-      className="list-group-item"
-      to={"/watchlists/${watchlist.id}"}
-    >
-      {watchlist.label}
-      {watchlist.desciption}
-      {watchlist.private}
-      <pre>{JSON.stringify(props, null, 4)}</pre>
-    </NavLink>
+    <li className="list-group-item">
+      <button onClick={() => props.onDelete()} disabled={props.loading}>
+        Delete
+      </button>
+      <NavLink exact to={"/watchlists/${watchlist.id}"}>
+        {watchlist.label}
+        {watchlist.desciption}
+        {watchlist.private}
+        <pre>{JSON.stringify(props, null, 4)}</pre>
+      </NavLink>
+    </li>
   );
 }
 
@@ -27,11 +33,22 @@ export function WatchLists() {
         }
 
         return (
-          <div className="">
-            {watchlists.map((watchlist) => (
-              <WatchlistCard watchlist={watchlist} key={watchlist.id} />
-            ))}
-          </div>
+          <WatchListDeleter>
+            {({ loading: deleting, deleteWatchList }) => (
+              <div className="">
+                {watchlists.map((watchlist) => (
+                  <WatchlistCard
+                    watchlist={watchlist}
+                    key={watchlist.id}
+                    loading={deleting}
+                    onDelete={() => {
+                      deleteWatchList(watchlist.id);
+                    }}
+                  />
+                ))}
+              </div>
+            )}
+          </WatchListDeleter>
         );
       }}
     </WatchlistFetcher>

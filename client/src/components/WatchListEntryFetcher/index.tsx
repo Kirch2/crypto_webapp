@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 
 export interface WatchListEntry {
   id: number;
-  label: string;
-  desciption: string;
-  marketCap: number;
-  symbol: string;
-  logoUrl: string;
-  change_24h: number;
-  change_7d: number;
 }
 
 const FETCH_OPTIONS = {

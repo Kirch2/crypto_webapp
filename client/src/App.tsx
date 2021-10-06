@@ -3,7 +3,6 @@ import { Navbar } from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Login } from "./pages/Login";
 import { CryptoList } from "./pages/CryptoList";
-import { CryptoShow } from "./pages/CryptoShow";
 import { WatchLists } from "./pages/WatchList";
 import { WatchListNew } from "./pages/WatchListNew";
 import { WatchListEdit } from "./pages/WatchListEdit";
@@ -22,9 +21,6 @@ function App() {
           </Route>
           <Route exact path="/cryptocurrencies">
             <CryptoList />
-          </Route>
-          <Route exact path="/cryptocurrencies/:id">
-            <CryptoShow />
           </Route>
           <Route exact path="/watchlists">
             <WatchLists />

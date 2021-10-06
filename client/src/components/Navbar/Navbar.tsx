@@ -49,16 +49,6 @@ export function Navbar(props: NavBarProps) {
                   exact
                   className="nav-link"
                   activeClassName="active"
-                  to="/cryptocurrencies/:id"
-                >
-                  Cryptocurrencies/:id
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  activeClassName="active"
                   to="/watchlists"
                 >
                   Watchlist

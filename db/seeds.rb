@@ -76,12 +76,17 @@ watchlist02 = Watchlist.create({
 
 # # # # # 
 # Seed WatchlistEntry Data
-watchlistEntry01 = WatchlistEntry.create({
-    watchlist: watchlist02.id,
-    cryptocurrency: eth.id
+WatchlistEntry.create({
+    watchlist_id: 1,
+    cryptocurrency_id: 1
 })
 
-watchlistEntry02 = WatchlistEntry.create({
-    watchlist_id: watchlist01.id,
-    cryptocurrency: btc.id
+WatchlistEntry.create({
+    watchlist_id: 1,
+    cryptocurrency_id: 2
+})
+
+WatchlistEntry.create({
+    watchlist_id: 2,
+    cryptocurrency_id: 1
 })

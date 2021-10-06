@@ -89,7 +89,7 @@ export function Navbar(props: NavBarProps) {
                   exact
                   className="nav-link"
                   activeClassName="active"
-                  to="reset-password"
+                  to="/reset-password"
                 >
                   Reset Password
                 </NavLink>

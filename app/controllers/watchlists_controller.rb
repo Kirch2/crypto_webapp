@@ -36,6 +36,7 @@ class WatchlistsController < ApplicationController
   # DELETE /watchlists/1
   def destroy
     @watchlist.destroy
+    render json: @watchlist
   end
 
   private

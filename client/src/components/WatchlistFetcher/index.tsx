@@ -4,6 +4,7 @@ export interface Watchlist {
   id: number;
   label: string;
   desciption: string;
+  private: boolean;
 }
 
 const FETCH_OPTIONS = {

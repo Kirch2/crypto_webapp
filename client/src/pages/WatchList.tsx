@@ -2,7 +2,15 @@ import { Watchlist, WatchlistFetcher } from "../components/WatchlistFetcher";
 import { Loading } from "../components/Loading";
 
 export function WatchlistCard(props: { watchlist: Watchlist }) {
-  return <pre>{JSON.stringify(props, null, 4)}</pre>;
+  const { watchlist } = props;
+  return (
+    <li className="list-group-item">
+      {watchlist.label}
+      {watchlist.desciption}
+      {watchlist.private}
+      <pre>{JSON.stringify(props, null, 4)}</pre>
+    </li>
+  );
 }
 
 export function WatchLists() {
@@ -14,7 +22,7 @@ export function WatchLists() {
         }
 
         return (
-          <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div className="">
             {watchlists.map((watchlist) => (
               <WatchlistCard watchlist={watchlist} key={watchlist.id} />
             ))}

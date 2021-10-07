@@ -7,7 +7,6 @@ import { WatchLists } from "./pages/WatchList";
 import { WatchListNew } from "./pages/WatchListNew";
 import { WatchListEdit } from "./pages/WatchListEdit";
 import { Register } from "./pages/Register";
-import { ResetUser } from "./pages/ResetUser";
 import { WatchListId } from "./pages/WatchListId";
 
 function App() {
@@ -38,9 +37,6 @@ function App() {
               </Route>
               <Route exact path="/register">
                 <Register />
-              </Route>
-              <Route exact path="/reset-password">
-                <ResetUser />
               </Route>
             </Switch>
           </div>

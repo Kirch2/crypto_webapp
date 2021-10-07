@@ -52,7 +52,18 @@ export function WatchListId() {
                               loading: fetchingCryptos,
                               createWatchListEntry,
                             }) => (
-                              <div>
+                              <select
+                                className="form-control form-control-lg"
+                                onChange={(e) => {
+                                  createWatchListEntry({
+                                    watchlist_id: id,
+                                    cryptocurrency_id: e.currentTarget.value,
+                                  });
+                                }}
+                              >
+                                <option>
+                                  Select Crypto to add to Watchlist
+                                </option>
                                 {cryptocurrencies
                                   .filter((c) =>
                                     filteredEntries.every(
@@ -60,18 +71,11 @@ export function WatchListId() {
                                     )
                                   )
                                   .map((crypto) => (
-                                    <CryptoCard
-                                      crypto={crypto}
-                                      key={crypto.id}
-                                      onDelete={() => {
-                                        createWatchListEntry({
-                                          watchlist_id: id,
-                                          cryptocurrency_id: crypto.id,
-                                        });
-                                      }}
-                                    />
+                                    <option value={crypto.id} key={crypto.id}>
+                                      {crypto.label}
+                                    </option>
                                   ))}
-                              </div>
+                              </select>
                             )}
                           </WatchListEntryCreator>
                         );

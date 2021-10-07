@@ -29,16 +29,6 @@ export function Navbar(props: NavBarProps) {
                   exact
                   className="nav-link"
                   activeClassName="active"
-                  to="/login"
-                >
-                  Login
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  activeClassName="active"
                   to="/cryptocurrencies"
                 >
                   Cryptocurrencies
@@ -61,7 +51,7 @@ export function Navbar(props: NavBarProps) {
                   activeClassName="active"
                   to="/watchlists/new"
                 >
-                  Watchlist/new
+                  New Watchlist
                 </NavLink>
               </li>
 
@@ -84,6 +74,16 @@ export function Navbar(props: NavBarProps) {
                   to="/register"
                 >
                   Register
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  className="nav-link"
+                  activeClassName="active"
+                  to="/login"
+                >
+                  Login
                 </NavLink>
               </li>
               <li className="nav-item">

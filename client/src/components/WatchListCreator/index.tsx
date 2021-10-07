@@ -26,7 +26,7 @@ export function WatchListCreator(props: WatchListCreatorProps) {
       .then((data) => {
         console.log(data);
         setLoading(false);
-        history.push("/watchlists");
+        history.push(`/watchlists/${data.id}`);
       })
       .catch(() => {
         setLoading(false);

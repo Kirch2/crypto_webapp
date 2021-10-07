@@ -11,9 +11,12 @@ export function WatchlistCard(props: {
   const { watchlist } = props;
   return (
     <li className="list-group-item">
+      <NavLink to={`/watchlists/${watchlist.id}/edit`}>Edit</NavLink>
+
       <button onClick={() => props.onDelete()} disabled={props.loading}>
         Delete
       </button>
+
       <NavLink exact to={`/watchlists/${watchlist.id}`}>
         {watchlist.label}
         {watchlist.desciption}

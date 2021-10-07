@@ -5,12 +5,15 @@ export function WatchListNew() {
   return (
     <WatchListCreator>
       {({ createWatchList, loading }) => (
-        <WatchListForm
-          loading={loading}
-          onSubmit={(newWatchList) => {
-            createWatchList(newWatchList);
-          }}
-        />
+        <div>
+          <h1>Create new watchlist</h1>
+          <WatchListForm
+            loading={loading}
+            onSubmit={(newWatchList) => {
+              createWatchList(newWatchList);
+            }}
+          />
+        </div>
       )}
     </WatchListCreator>
   );

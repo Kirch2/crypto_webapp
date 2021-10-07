@@ -2,15 +2,19 @@ import React, { useState } from "react";
 
 interface WatchListFormProps {
   loading: boolean;
+  label?: string;
+  description?: string;
+  isPrivate?: boolean;
   onSubmit: (newWatchList: any) => void;
 }
 
 export function WatchListForm(props: WatchListFormProps) {
+  const { label = "", description = "", isPrivate = false } = props;
   const [watchList, setWatchList] = useState({
-    label: "",
-    description: "",
+    label,
+    description,
     user_id: 1,
-    private: true,
+    private: isPrivate,
   });
 
   return (
@@ -20,11 +24,10 @@ export function WatchListForm(props: WatchListFormProps) {
         props.onSubmit(watchList);
       }}
     >
-      <h1>Create new watchlist</h1>
-
       <div className="mb-3">
         <label>Watchlist Label</label>
         <input
+          value={watchList.label}
           onChange={(e) => {
             setWatchList({
               ...watchList,
@@ -41,6 +44,7 @@ export function WatchListForm(props: WatchListFormProps) {
       <div className="mb-3">
         <label>Description</label>
         <input
+          value={watchList.description}
           onChange={(e) => {
             setWatchList({
               ...watchList,
@@ -57,6 +61,7 @@ export function WatchListForm(props: WatchListFormProps) {
       <div className="mb-1">
         <label>Private</label>
         <input
+          checked={watchList.private}
           onChange={(e) => {
             setWatchList({
               ...watchList,

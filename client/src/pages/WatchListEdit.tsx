@@ -1,17 +1,25 @@
-import { WatchListCreator } from "../components/WatchListCreator";
+import { WatchListUpdater } from "../components/WatchListUpdater";
 import { WatchListForm } from "../components/WatchListForm";
 
 export function WatchListEdit() {
   return (
-    <WatchListCreator>
-      {({ createWatchList, loading }) => (
-        <WatchListForm
-          loading={loading}
-          onSubmit={(newWatchList) => {
-            createWatchList(newWatchList);
-          }}
-        />
+    <WatchListUpdater>
+      {({ updateWatchList, loading }) => (
+        <div>
+          <h1>Edit watchlist</h1>
+          <WatchListForm
+            label={"label"}
+            description={"description"}
+            isPrivate={true}
+            loading={loading}
+            onSubmit={(watchList) => {
+              updateWatchList({
+                ...watchList,
+              });
+            }}
+          />
+        </div>
       )}
-    </WatchListCreator>
+    </WatchListUpdater>
   );
 }

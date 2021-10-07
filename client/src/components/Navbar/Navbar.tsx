@@ -22,18 +22,18 @@ export function Navbar(props: NavBarProps) {
           </NavLink>
         </div>
         <ul className="nav nav-pills">
+          <li className="nav-item">
+            <NavLink
+              exact
+              className="nav-link"
+              activeClassName="active"
+              to="/cryptocurrencies"
+            >
+              Cryptocurrencies
+            </NavLink>
+          </li>
           {!hideLinks && (
             <React.Fragment>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  activeClassName="active"
-                  to="/cryptocurrencies"
-                >
-                  Cryptocurrencies
-                </NavLink>
-              </li>
               <li className="nav-item">
                 <NavLink
                   exact
@@ -60,32 +60,24 @@ export function Navbar(props: NavBarProps) {
                   exact
                   className="nav-link"
                   activeClassName="active"
-                  to="/reset-password"
-                >
-                  Reset Password
-                </NavLink>
-              </li>
-
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  activeClassName="active"
                   to="/register"
                 >
                   Register
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  activeClassName="active"
-                  to="/login"
-                >
-                  Login
-                </NavLink>
-              </li>
+              {props.hideLinks === true && (
+                <React.Fragment>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link"
+                      activeClassName="active"
+                      to="/login"
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                </React.Fragment>
+              )}
               <li className="nav-item">
                 <a
                   href="#logout"
@@ -101,19 +93,6 @@ export function Navbar(props: NavBarProps) {
                 >
                   Logout
                 </a>
-              </li>
-            </React.Fragment>
-          )}
-          {hideLinks === true && (
-            <React.Fragment>
-              <li className="nav-item">
-                {/* <NavLink
-                  className="nav-link"
-                  activeClassName="active"
-                  to="/login"
-                >
-                  Login
-                </NavLink> */}
               </li>
             </React.Fragment>
           )}

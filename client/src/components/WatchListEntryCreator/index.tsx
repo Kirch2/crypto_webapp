@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 
 interface WatchListEntryCreatorProps {
   children: (childProps: {
@@ -10,7 +9,6 @@ interface WatchListEntryCreatorProps {
 
 //used to create to new newWatchList
 export function WatchListEntryCreator(props: WatchListEntryCreatorProps) {
-  const history = useHistory();
   const [loading, setLoading] = useState(false);
 
   function createWatchListEntry(newWatchListEntry: any) {

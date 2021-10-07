@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Cryptocurrency } from "../CryptoFetcher";
 
 export interface WatchListEntry {
   id: number;
+  cryptocurrency: Cryptocurrency;
+  watchlist: {
+    id: number;
+  };
 }
 
 const FETCH_OPTIONS = {

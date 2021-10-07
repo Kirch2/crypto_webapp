@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
 
 interface Props {
@@ -9,12 +10,13 @@ interface Props {
 
 //used to create to new newWatchList
 export function WatchListUpdater(props: Props) {
+  const history = useHistory();
   const [loading, setLoading] = useState(false);
 
   function updateWatchList(watchList: any) {
     setLoading(true);
     fetch(`/api/watchlists/${watchList.id}`, {
-      method: "post",
+      method: "put",
       headers: {
         "Content-Type": "application/json",
       },
@@ -23,6 +25,7 @@ export function WatchListUpdater(props: Props) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        history.push(`/watchlists/${watchList.id}`);
         setLoading(false);
       })
       .catch(() => {

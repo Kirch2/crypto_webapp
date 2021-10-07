@@ -26,7 +26,7 @@ eth = Cryptocurrency.create({
     marketCap: 413941,
     price: 3524.56,
     symbol: "ETH",
-    logoUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    logoUrl: "https://ethereum.org/static/4b5288012dc4b32ae7ff21fccac98de1/31987/eth-diamond-black-gray.png",
     change_24h: 133.26,
     change_7d: 521.05,
 })

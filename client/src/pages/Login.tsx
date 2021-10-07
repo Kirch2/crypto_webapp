@@ -7,15 +7,15 @@ export function LoginForm(props: { handleLoginSubmit: any }) {
       <input
         type="text"
         name="full_name"
-        placeholder="Please enter your username"
+        placeholder="Enter your username"
         className="login-field form-control"
       />
       <br />
 
       <input
         type="text"
-        name="phone_number"
-        placeholder="Please enter your email"
+        name="email"
+        placeholder="Enter your email"
         className="login-field form-control"
       />
       <br />

@@ -26,7 +26,10 @@ export function UserCreator(props: Props) {
       .then((data) => {
         console.log(data);
         setLoading(false);
-        // history.push(`/watchlists/${data.id}`);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("user_id", data.id);
+        history.push(`/cryptocurrencies`);
       })
       .catch(() => {
         setLoading(false);

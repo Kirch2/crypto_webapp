@@ -91,8 +91,9 @@ export function Navbar(props: NavBarProps) {
                   href="#logout"
                   onClick={(e) => {
                     e.preventDefault();
-                    delete localStorage.user_fullname;
-                    delete localStorage.user_phonenumber;
+                    delete localStorage.username;
+                    delete localStorage.user_id;
+                    delete localStorage.email;
                     history.push("/login");
                     window.location.reload();
                   }}

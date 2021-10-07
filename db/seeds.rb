@@ -49,8 +49,8 @@ ada = Cryptocurrency.create({
     price: 2.16,
     symbol: "ADA",
     logoUrl: "https://cryptologos.cc/logos/cardano-ada-logo.png",
-    change_24h: -25.04,
-    change_7d: 22.89,
+    change_24h: -0.04,
+    change_7d: 0.11,
 })
 
 usdt = Cryptocurrency.create({
@@ -60,8 +60,8 @@ usdt = Cryptocurrency.create({
     price: 1.01,
     symbol: "USDT",
     logoUrl: "https://cryptologos.cc/logos/tether-usdt-logo.png?v=002",
-    change_24h: 12.54,
-    change_7d: 14.35,
+    change_24h: 0.17,
+    change_7d: 0.35,
 })
 
 xrp = Cryptocurrency.create({
@@ -71,8 +71,8 @@ xrp = Cryptocurrency.create({
     price: 1.05,
     symbol: "XRP",
     logoUrl: "https://cryptologos.cc/logos/xrp-xrp-logo.png?v=002",
-    change_24h: -24.11,
-    change_7d: 46.50,
+    change_24h: -0.11,
+    change_7d: 0.15,
 })
 
 sol = Cryptocurrency.create({
@@ -82,8 +82,8 @@ sol = Cryptocurrency.create({
     price: 151.41,
     symbol: "SOL",
     logoUrl: "https://cryptologos.cc/logos/solana-sol-logo.png?v=014",
-    change_24h: 16.06,
-    change_7d: 46.50,
+    change_24h: 10.05,
+    change_7d: 29.50,
 })
 
 usdc = Cryptocurrency.create({

@@ -3,9 +3,11 @@ import { Cryptocurrency } from "../CryptoFetcher";
 
 export function CryptoCard(props: { crypto: Cryptocurrency }) {
   const { crypto } = props;
-  let priceBadgeCss = "badge bg-success";
+  let priceBadgeCss = "mx-3 badge bg-success";
+  let plussign = "+";
   if (crypto.change_24h < 0) {
-    priceBadgeCss = "badge bg-danger";
+    priceBadgeCss = "mx-3 badge bg-danger";
+    plussign = "-";
   }
   return (
     <div className="list-group-item d-flex align-items-center">
@@ -17,7 +19,10 @@ export function CryptoCard(props: { crypto: Cryptocurrency }) {
       />
       <p className="fs-3 px-3 mb-0">{crypto.label} </p>
       <div className="badge bg-dark mx-3">{crypto.symbol}</div>
-      <div className={priceBadgeCss}>{crypto.price}</div>
+      <div className={priceBadgeCss}>${crypto.price.toLocaleString()}</div>
+      <div className={priceBadgeCss}>
+        {plussign} ${Math.abs(crypto.change_24h).toLocaleString()}
+      </div>
     </div>
   );
 }

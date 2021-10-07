@@ -15,7 +15,7 @@ export function WatchListEntryCreator(props: WatchListEntryCreatorProps) {
 
   function createWatchListEntry(newWatchListEntry: any) {
     setLoading(true);
-    fetch(`/api/watchlists_entries`, {
+    fetch(`/api/watchlist_entries`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -26,6 +26,7 @@ export function WatchListEntryCreator(props: WatchListEntryCreatorProps) {
       .then((data) => {
         console.log(data);
         setLoading(false);
+        window.location.reload();
       })
       .catch(() => {
         setLoading(false);

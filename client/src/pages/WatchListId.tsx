@@ -8,6 +8,8 @@ import { useParams } from "react-router";
 import { CryptoCard } from "../components/CryptoCard";
 import { NavLink } from "react-router-dom";
 import { WatchListEntryDeleter } from "../components/WatchListEntryDeleter";
+import { CryptoFetcher } from "../components/CryptoFetcher";
+import { WatchListEntryCreator } from "../components/WatchListEntryCreator";
 
 export function WatchListEntryCard(props: { entry: WatchListEntry }) {
   return <pre>{JSON.stringify(props, null, 4)}</pre>;
@@ -33,11 +35,50 @@ export function WatchListId() {
                 if (loading) {
                   return <Loading />;
                 }
+                const filteredEntries = watchlistentries.filter(
+                  (entry) => String(entry.watchlist.id) === id
+                );
                 return (
-                  <div className="list-group">
-                    {watchlistentries
-                      .filter((entry) => String(entry.watchlist.id) === id)
-                      .map((entry) => (
+                  <div>
+                    <CryptoFetcher>
+                      {({ loading: fetchingCryptos, cryptocurrencies }) => {
+                        if (fetchingCryptos) {
+                          return <Loading />;
+                        }
+
+                        return (
+                          <WatchListEntryCreator>
+                            {({
+                              loading: fetchingCryptos,
+                              createWatchListEntry,
+                            }) => (
+                              <div>
+                                {cryptocurrencies
+                                  .filter((c) =>
+                                    filteredEntries.every(
+                                      (e) => e.cryptocurrency.id !== c.id
+                                    )
+                                  )
+                                  .map((crypto) => (
+                                    <CryptoCard
+                                      crypto={crypto}
+                                      key={crypto.id}
+                                      onDelete={() => {
+                                        createWatchListEntry({
+                                          watchlist_id: id,
+                                          cryptocurrency_id: crypto.id,
+                                        });
+                                      }}
+                                    />
+                                  ))}
+                              </div>
+                            )}
+                          </WatchListEntryCreator>
+                        );
+                      }}
+                    </CryptoFetcher>
+                    <div className="list-group mt-4">
+                      {filteredEntries.map((entry) => (
                         <WatchListEntryDeleter>
                           {({ loading: deleting, deleteWatchListEntry }) => (
                             <CryptoCard
@@ -51,6 +92,7 @@ export function WatchListId() {
                           )}
                         </WatchListEntryDeleter>
                       ))}
+                    </div>
                   </div>
                 );
               }}

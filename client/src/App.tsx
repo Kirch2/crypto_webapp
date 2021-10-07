@@ -10,9 +10,14 @@ import { Register } from "./pages/Register";
 import { WatchListId } from "./pages/WatchListId";
 
 function App() {
+  const email = localStorage.getItem("email");
+  const username = localStorage.getItem("username");
+  const user_id = localStorage.getItem("user_id");
+  const isLoggedIn: boolean =
+    email !== null && user_id !== null && username !== null;
   return (
     <Router>
-      <Navbar hideLinks={false} user={{}} />
+      <Navbar hideLinks={isLoggedIn} user={{}} />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8">

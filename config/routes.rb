@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :watchlists
     resources :cryptocurrencies
     resources :users
+    post 'users/login', to: "users#login"
   end
 
   # Routing logic: fallback requests for React Router.

@@ -25,11 +25,19 @@ export function UserAuthenticator(props: Props) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (!data.email && !data.username) {
+          alert(
+            "Login unsuccessful - please enter you username and password and try again"
+          );
+          return;
+        }
+
         setLoading(false);
         localStorage.setItem("email", data.email);
         localStorage.setItem("username", data.username);
         localStorage.setItem("user_id", data.id);
         history.push(`/cryptocurrencies`);
+        window.location.reload();
       })
       .catch(() => {
         setLoading(false);

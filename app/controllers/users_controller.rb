@@ -13,6 +13,17 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  # POST /users/login
+  def login
+    @users = User.where({ username: user_params[:username] })
+    user = @users[0];
+    if !user
+      render json: { error: "No user found" }, status: :unprocessable_entity
+      return
+    end
+    render json: user
+  end
+
   # POST /users
   def create
     @user = User.new(user_params)
@@ -46,6 +57,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :email)
+      params.require(:user).permit(:username, :email, :password)
     end
 end

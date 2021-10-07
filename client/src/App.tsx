@@ -17,7 +17,7 @@ function App() {
     email !== null && user_id !== null && username !== null;
   return (
     <Router>
-      <Navbar hideLinks={isLoggedIn} user={{}} />
+      <Navbar loggedIn={isLoggedIn} />
       <div className="container">
         <div className="row d-flex justify-content-center">
           <div className="col-lg-8">

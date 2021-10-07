@@ -27,7 +27,7 @@ export function WatchListId() {
 
         return (
           <div>
-            <h2>{watchlist.label}</h2>
+            <h1>{watchlist.label}</h1>
             <p>{watchlist.description}</p>
             <NavLink to={`/watchlists/${watchlist.id}/edit`}>Edit</NavLink>
             <WatchListEntryFetcher>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export interface Watchlist {
   id: number;
   label: string;
-  desciption: string;
+  description: string;
   private: boolean;
 }
 

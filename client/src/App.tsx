@@ -15,32 +15,36 @@ function App() {
     <Router>
       <Navbar hideLinks={false} user={{}} />
       <div className="container">
-        <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/cryptocurrencies">
-            <CryptoList />
-          </Route>
-          <Route exact path="/watchlists">
-            <WatchLists />
-          </Route>
-          <Route exact path="/watchlists/new">
-            <WatchListNew />
-          </Route>
-          <Route exact path="/watchlists/:id">
-            <WatchListId />
-          </Route>
-          <Route exact path="/watchlists/:id/edit">
-            <WatchListEdit />
-          </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route exact path="/reset-password">
-            <ResetUser />
-          </Route>
-        </Switch>
+        <div className="row d-flex justify-content-center">
+          <div className="col-lg-8">
+            <Switch>
+              <Route exact path="/login">
+                <Login />
+              </Route>
+              <Route exact path="/cryptocurrencies">
+                <CryptoList />
+              </Route>
+              <Route exact path="/watchlists">
+                <WatchLists />
+              </Route>
+              <Route exact path="/watchlists/new">
+                <WatchListNew />
+              </Route>
+              <Route exact path="/watchlists/:id">
+                <WatchListId />
+              </Route>
+              <Route exact path="/watchlists/:id/edit">
+                <WatchListEdit />
+              </Route>
+              <Route exact path="/register">
+                <Register />
+              </Route>
+              <Route exact path="/reset-password">
+                <ResetUser />
+              </Route>
+            </Switch>
+          </div>
+        </div>
       </div>
     </Router>
   );

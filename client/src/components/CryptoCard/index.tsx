@@ -13,20 +13,23 @@ export function CryptoCard(props: {
     plussign = "-";
   }
   return (
-    <div className="list-group-item d-flex align-items-center">
-      <img
-        width="50"
-        className="d-flex"
-        src={crypto.logoUrl}
-        alt={crypto.label}
-      />
-      <p className="fs-3 px-3 mb-0">{crypto.label} </p>
-      <div className="badge bg-dark mx-3">{crypto.symbol}</div>
-      <div className={priceBadgeCss}>${crypto.price.toLocaleString()}</div>
-      <div className={priceBadgeCss}>
-        {plussign} ${Math.abs(crypto.change_24h).toLocaleString()}
+    <div className="list-group-item d-flex align-items-center justify-content-between">
+      <div className="d-flex align-items-center">
+        <img width="50" src={crypto.logoUrl} alt={crypto.label} />
+        <p className="fs-3 px-3 mb-0">{crypto.label} </p>
+        <div className="">
+          <div className="badge bg-dark mx-3">{crypto.symbol}</div>
+          <div className={priceBadgeCss}>${crypto.price.toLocaleString()}</div>
+          <div className={priceBadgeCss}>
+            {plussign} ${Math.abs(crypto.change_24h).toLocaleString()}
+          </div>
+        </div>
       </div>
-      {onDelete !== null && <button onClick={() => onDelete()}>X</button>}
+      {onDelete !== null && (
+        <button className="btn btn-danger btn-sm" onClick={() => onDelete()}>
+          Remove
+        </button>
+      )}
     </div>
   );
 }

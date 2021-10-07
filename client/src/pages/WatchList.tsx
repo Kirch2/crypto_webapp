@@ -10,50 +10,60 @@ export function WatchlistCard(props: {
 }) {
   const { watchlist } = props;
   return (
-    <li className="list-group-item">
-      <NavLink to={`/watchlists/${watchlist.id}/edit`}>Edit</NavLink>
-
-      <button onClick={() => props.onDelete()} disabled={props.loading}>
-        Delete
-      </button>
-
+    <li className="list-group-item d-flex align-items-center justify-content-between">
       <NavLink exact to={`/watchlists/${watchlist.id}`}>
         {watchlist.label}
-        {watchlist.desciption}
-        {watchlist.private}
-        <pre>{JSON.stringify(props, null, 4)}</pre>
       </NavLink>
+      <div className="btn-group">
+        <NavLink
+          className="btn btn-outline-primary btn-sm"
+          to={`/watchlists/${watchlist.id}/edit`}
+        >
+          Edit
+        </NavLink>
+
+        <button
+          className="btn btn-outline-danger btn-sm"
+          onClick={() => props.onDelete()}
+          disabled={props.loading}
+        >
+          Delete
+        </button>
+      </div>
     </li>
   );
 }
 
 export function WatchLists() {
   return (
-    <WatchlistFetcher>
-      {({ loading, watchlists }) => {
-        if (loading) {
-          return <Loading />;
-        }
+    <div>
+      <h1>Watchlists</h1>
+      <WatchlistFetcher>
+        {({ loading, watchlists }) => {
+          if (loading) {
+            return <Loading />;
+          }
 
-        return (
-          <WatchListDeleter>
-            {({ loading: deleting, deleteWatchList }) => (
-              <div className="">
-                {watchlists.map((watchlist) => (
-                  <WatchlistCard
-                    watchlist={watchlist}
-                    key={watchlist.id}
-                    loading={deleting}
-                    onDelete={() => {
-                      deleteWatchList(watchlist.id);
-                    }}
-                  />
-                ))}
-              </div>
-            )}
-          </WatchListDeleter>
-        );
-      }}
-    </WatchlistFetcher>
+          return (
+            <WatchListDeleter>
+              {({ loading: deleting, deleteWatchList }) => (
+                <div className="">
+                  {watchlists.map((watchlist) => (
+                    <WatchlistCard
+                      watchlist={watchlist}
+                      key={watchlist.id}
+                      loading={deleting}
+                      onDelete={() => {
+                        deleteWatchList(watchlist.id);
+                      }}
+                    />
+                  ))}
+                </div>
+              )}
+            </WatchListDeleter>
+          );
+        }}
+      </WatchlistFetcher>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ export function WatchlistCard(props: {
       <button onClick={() => props.onDelete()} disabled={props.loading}>
         Delete
       </button>
-      <NavLink exact to={"/watchlists/${watchlist.id"}>
+      <NavLink exact to={`/watchlists/${watchlist.id}`}>
         {watchlist.label}
         {watchlist.desciption}
         {watchlist.private}

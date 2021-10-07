@@ -74,22 +74,13 @@ export function Navbar(props: NavBarProps) {
                   Watchlist /:id/edit
                 </NavLink>
               </li>
+
               <li className="nav-item">
                 <NavLink
                   exact
                   className="nav-link"
                   activeClassName="active"
-                  to="/watchlists/:id"
-                >
-                  Watchlist/:id
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  activeClassName="active"
-                  to="reset-password"
+                  to="/reset-password"
                 >
                   Reset Password
                 </NavLink>

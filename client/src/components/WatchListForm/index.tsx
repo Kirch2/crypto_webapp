@@ -54,7 +54,7 @@ export function WatchListForm(props: WatchListFormProps) {
           className="form-control"
         />
       </div>
-      <div className="mb-3">
+      <div className="mb-1">
         <label>Private</label>
         <input
           onChange={(e) => {

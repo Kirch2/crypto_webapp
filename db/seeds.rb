@@ -26,7 +26,7 @@ eth = Cryptocurrency.create({
     marketCap: 413941,
     price: 3524.56,
     symbol: "ETH",
-    logoUrl: "https://ethereum.org/static/4b5288012dc4b32ae7ff21fccac98de1/31987/eth-diamond-black-gray.png",
+    logoUrl: "https://cryptologos.cc/logos/ethereum-eth-logo.png?v=014",
     change_24h: 133.26,
     change_7d: 521.05,
 })
@@ -37,9 +37,86 @@ bnb = Cryptocurrency.create({
     marketCap: 74368,
     price: 441.91,
     symbol: "BNB",
-    logoUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png",
+    logoUrl: "https://www.logo.wine/a/logo/Binance/Binance-Icon-Logo.wine.svg",
     change_24h: 16.06,
     change_7d: 46.50,
+})
+
+ada = Cryptocurrency.create({
+    label: "Cardano",
+    description: "#4 crypto",
+    marketCap: 6917,
+    price: 2.16,
+    symbol: "ADA",
+    logoUrl: "https://cryptologos.cc/logos/cardano-ada-logo.png",
+    change_24h: -25.04,
+    change_7d: 22.89,
+})
+
+usdt = Cryptocurrency.create({
+    label: "Tether",
+    description: "#5 crypto",
+    marketCap: 6806,
+    price: 1.01,
+    symbol: "USDT",
+    logoUrl: "https://cryptologos.cc/logos/tether-usdt-logo.png?v=002",
+    change_24h: 12.54,
+    change_7d: 14.35,
+})
+
+xrp = Cryptocurrency.create({
+    label: "XRP",
+    description: "#6 crypto",
+    marketCap: 4930,
+    price: 1.05,
+    symbol: "XRP",
+    logoUrl: "https://cryptologos.cc/logos/xrp-xrp-logo.png?v=002",
+    change_24h: -24.11,
+    change_7d: 46.50,
+})
+
+sol = Cryptocurrency.create({
+    label: "Solana",
+    description: "#7 crypto",
+    marketCap: 4490,
+    price: 151.41,
+    symbol: "SOL",
+    logoUrl: "https://cryptologos.cc/logos/solana-sol-logo.png?v=014",
+    change_24h: 16.06,
+    change_7d: 46.50,
+})
+
+usdc = Cryptocurrency.create({
+    label: "USD Coin",
+    description: "#8 crypto",
+    marketCap: 3235,
+    price: 0.9999,
+    symbol: "USDC",
+    logoUrl: "https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=002",
+    change_24h: -0.01,
+    change_7d: 0    .002,
+})
+
+doge = Cryptocurrency.create({
+    label: "Dogecoin",
+    description: "#9 crypto",
+    marketCap: 3209,
+    price: 0.2447,
+    symbol: "DOGE",
+    logoUrl: "https://cryptologos.cc/logos/dogecoin-doge-logo.png?v=002",
+    change_24h: -0.02,
+    change_7d: 0.05,
+})
+
+dot = Cryptocurrency.create({
+    label: "Polka Dot",
+    description: "#10 crypto",
+    marketCap: 3068,
+    price: 31.24,
+    symbol: "DOT",
+    logoUrl: "https://cryptologos.cc/logos/polkadot-new-dot-logo.png?v=014",
+    change_24h: 4.67,
+    change_7d: -1.89,
 })
 
 # # # # # 

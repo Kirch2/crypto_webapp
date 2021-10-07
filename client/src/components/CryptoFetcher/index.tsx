@@ -5,6 +5,7 @@ export interface Cryptocurrency {
   label: string;
   desciption: string;
   marketCap: number;
+  price: number;
   symbol: string;
   logoUrl: string;
   change_24h: number;

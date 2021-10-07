@@ -1,25 +1,23 @@
 import * as React from "react";
-
-export interface Cryptocurrency {
-  id: number;
-  label: string;
-  desciption: string;
-  marketCap: number;
-  symbol: string;
-  logoUrl: string;
-  change_24h: number;
-  change_7d: number;
-}
+import { Cryptocurrency } from "../CryptoFetcher";
 
 export function CryptoCard(props: { crypto: Cryptocurrency }) {
   const { crypto } = props;
+  let priceBadgeCss = "badge bg-success";
+  if (crypto.change_24h < 0) {
+    priceBadgeCss = "badge bg-danger";
+  }
   return (
-    <div className="col">
-      <div className="card">
-        <img className="card-img-top" src={crypto.logoUrl} alt={crypto.label} />
-        <p>{crypto.label}</p>
-        <p>{crypto.symbol}</p>
-      </div>
+    <div className="list-group-item d-flex align-items-center">
+      <img
+        width="50"
+        className="d-flex"
+        src={crypto.logoUrl}
+        alt={crypto.label}
+      />
+      <p className="fs-3 px-3 mb-0">{crypto.label} </p>
+      <div className="badge bg-dark mx-3">{crypto.symbol}</div>
+      <div className={priceBadgeCss}>{crypto.price}</div>
     </div>
   );
 }

@@ -94,7 +94,7 @@ usdc = Cryptocurrency.create({
     symbol: "USDC",
     logoUrl: "https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=002",
     change_24h: -0.01,
-    change_7d: 0    .002,
+    change_7d: 0.002,
 })
 
 doge = Cryptocurrency.create({

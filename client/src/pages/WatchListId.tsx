@@ -6,6 +6,8 @@ import { Loading } from "../components/Loading";
 import { WatchListIdFetcher } from "../components/WatchListIdFetcher";
 import { useParams } from "react-router";
 import { CryptoCard } from "../components/CryptoCard";
+import { NavLink } from "react-router-dom";
+import { WatchListEntryDeleter } from "../components/WatchListEntryDeleter";
 
 export function WatchListEntryCard(props: { entry: WatchListEntry }) {
   return <pre>{JSON.stringify(props, null, 4)}</pre>;
@@ -25,6 +27,7 @@ export function WatchListId() {
           <div>
             <h2>{watchlist.label}</h2>
             <p>{watchlist.description}</p>
+            <NavLink to={`/watchlists/${watchlist.id}/edit`}>Edit</NavLink>
             <WatchListEntryFetcher>
               {({ loading, watchlistentries }) => {
                 if (loading) {
@@ -33,12 +36,20 @@ export function WatchListId() {
                 return (
                   <div className="list-group">
                     {watchlistentries
-                      .filter((entry) => entry.watchlist.id)
+                      .filter((entry) => String(entry.watchlist.id) === id)
                       .map((entry) => (
-                        <CryptoCard
-                          crypto={entry.cryptocurrency}
-                          key={entry.id}
-                        />
+                        <WatchListEntryDeleter>
+                          {({ loading: deleting, deleteWatchListEntry }) => (
+                            <CryptoCard
+                              crypto={entry.cryptocurrency}
+                              key={entry.id}
+                              onDelete={() => {
+                                deleteWatchListEntry(entry.id);
+                                console.log("delete");
+                              }}
+                            />
+                          )}
+                        </WatchListEntryDeleter>
                       ))}
                   </div>
                 );

@@ -172,6 +172,9 @@
     ],
     "resetMocks": true
   },
+  "engines": {
+    "node": ">=16.4.0"
+  },
   "babel": {
     "presets": [
       "react-app"

@@ -25,6 +25,9 @@ function App() {
               <Route exact path="/login">
                 <Login />
               </Route>
+              <Route exact path="/">
+                <CryptoList />
+              </Route>
               <Route exact path="/cryptocurrencies">
                 <CryptoList />
               </Route>

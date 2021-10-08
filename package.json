@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "postinstall": "cd client && npm install",
-    "deploy": "cp -a client/build/. public/",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build && cp -R ./build/* ../public"
   }
 }

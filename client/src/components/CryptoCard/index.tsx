@@ -18,7 +18,7 @@ export function CryptoCard(props: {
         <img width="50" src={crypto.logoUrl} alt={crypto.label} />
         <p className="fs-3 px-3 mb-0">{crypto.label} </p>
         <div className="">
-          <div className="badge bg-dark mx-3">{crypto.symbol}</div>
+          <div className="badge bg-dark mx-2">{crypto.symbol}</div>
           <div className={priceBadgeCss}>${crypto.price.toLocaleString()}</div>
           <div className={priceBadgeCss}>
             {plussign} ${Math.abs(crypto.change_24h).toLocaleString()}

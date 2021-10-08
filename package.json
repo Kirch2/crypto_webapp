@@ -1,0 +1,9 @@
+{
+    "name": "react-app-deployer",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "postinstall": "yarn --cwd client --production=false install",
+      "build": "yarn --cwd client build"
+    }
+  }
